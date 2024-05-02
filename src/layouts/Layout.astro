@@ -1,0 +1,53 @@
+---
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta
+			name='Auxiliar Manipuladora del Cartón'
+			content='todo sobre la empresa Auxiliar Manipuladora del Cartón'
+		/>
+		<meta
+			name='viewport'
+			content='width=device-width'
+		/>
+		<link
+			rel='icon'
+			type='image/svg+xml'
+			href='/favicon.svg'
+		/>
+		<meta
+			name='generator'
+			content={Astro.generator}
+		/>
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--auxi1: rgb(222, 171, 18);
+		--auxi2: rgb(0, 128, 72);
+		background-color: light-dark(rgb(222, 222, 222), rgb(33, 33, 33));
+		color: light-dark(var(--auxi2), var(--auxi1));
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
+		scrollbar-color: var(--auxi1) black;
+		scrollbar-width: thin;
+	}
+	::selection {
+		background-color: var(--auxi1);
+		color: white;
+	}
+</style>
